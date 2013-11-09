@@ -29,6 +29,12 @@ body {
     padding: 0.2em 0;
 }
 
+.text-bubble {
+    font-size: 40px;
+    width:200px;
+    height:400px;
+}
+
 #video-canvas {
     visibility: hidden;
     position: fixed;
@@ -44,6 +50,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: -1;
     //visibility: hidden;
     //margin: -180px 0 0 -240px;
 }
