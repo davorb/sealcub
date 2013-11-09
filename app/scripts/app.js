@@ -1,6 +1,8 @@
 /*global define */
-define([], function () {
-    'use strict';
+define(['video'], function (Video) {
+  'use strict';
 
-    return '\'Allo \'Allo!';
+  Video.initialize();
+
+  return '\'Allo \'Allo!';
 });
