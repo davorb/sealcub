@@ -1,6 +1,7 @@
 body {
     background: #fafafa;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    height: 3000px;
     color: #333;
 }
 
@@ -29,7 +30,7 @@ body {
 }
 
 #video-canvas {
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     left: 0;

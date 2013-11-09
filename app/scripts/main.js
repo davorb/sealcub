@@ -3,7 +3,8 @@ require.config({
     jquery: '../bower_components/jquery/jquery',
     requirejs: '../bower_components/requirejs/require',
     text: '../bower_components/requirejs-text/text',
-    underscore: '../bower_components/underscore/underscore'
+    underscore: '../bower_components/underscore/underscore',
+    'requirejs-text': '../bower_components/requirejs-text/text'
   }
 });
 
