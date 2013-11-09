@@ -1,7 +1,7 @@
 body {
     background: #fafafa;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    height: 3000px;
+    height: 12000px;
     color: #333;
 }
 
@@ -30,6 +30,7 @@ body {
 }
 
 #video-canvas {
+    visibility: hidden;
     position: fixed;
     top: 0;
     bottom: 0;
@@ -40,10 +41,10 @@ body {
 }
 
 #video-element {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    visibility: hidden;
+    //visibility: hidden;
     //margin: -180px 0 0 -240px;
 }
 
