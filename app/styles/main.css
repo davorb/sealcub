@@ -29,15 +29,10 @@ body {
     padding: 0.2em 0;
 }
 
-#video-canvas {
-    visibility: hidden;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
+.text-bubble {
+    font-size: 40px;
+    width:200px;
+    height:400px;
 }
 
 #video-element {
@@ -47,6 +42,5 @@ body {
     width: 100% !important;
     height: auto !important;
     margin: 0;
-    //visibility: hidden;
-    //margin: -180px 0 0 -240px;
+    z-index: -1;
 }
