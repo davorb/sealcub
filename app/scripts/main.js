@@ -2,6 +2,7 @@ require.config({
   paths: {
     jquery: '../bower_components/jquery/jquery',
     requirejs: '../bower_components/requirejs/require',
+    text: '../bower_components/requirejs-text/text',
     underscore: '../bower_components/underscore/underscore'
   }
 });
