@@ -1,13 +1,10 @@
 /*global define */
-define([], function() {
+define(['jquery'], function($) {
   'use strict';
 
   return {
-    A: function() {
-
-    },
-    B: function() {
-
+    parallax: function() {
+      $('.hero-unit').replaceWith("/templates/parallax.tpl");
     }
   };
 });
