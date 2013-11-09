@@ -1,12 +1,11 @@
 /*global define */
 
-define(['jquery', 'video'], function($, Video) {
+define(['video', 'parallax'], function(Video, Parallax) {
   'use strict';
-  Video.initialize();
-  return {
-    parallax: function() {
-      $('.hero-unit').replaceWith("/templates/parallax.tpl");
-    }
-  };
+  //Video.initialize();
+   
+  Parallax.initialize();
+  
+  return "";
 });
 
