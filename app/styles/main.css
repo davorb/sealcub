@@ -48,7 +48,7 @@ body {
 }
 
 #home {
-  background: url(home-bg.jpg) 50% 0 repeat fixed; min-height: 1000px;
+  background: url(images/l1.png) 50% 0 repeat fixed; min-height: 1000px;
   height: 1000px;
   margin: 0 auto;
   width: 100%;
@@ -65,7 +65,7 @@ body {
 }
  
 #about {
-  background: url(about-bg.jpg) 50% 0 repeat fixed; min-height: 1000px;
+  background: url(images/l3.png) 50% 0 repeat fixed; min-height: 1000px;
   height: 1000px;
   margin: 0 auto;
   width: 100%;
