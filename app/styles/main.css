@@ -44,6 +44,9 @@ body {
     position: fixed;
     top: 0;
     left: 0;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0;
     //visibility: hidden;
     //margin: -180px 0 0 -240px;
 }
