@@ -36,7 +36,7 @@ define(
           var isVisible = $('#bubble' + i).hasClass('bounceInLeft');
           if (schouldBeVisible && !isVisible) { // animate in
             $('#bubble' + i).removeClass('bounceOutLeft');
-            $('#bubble' + i).addClass('bounceInLeft');
+            $('#bubble' + i).show().addClass('bounceInLeft');
           } else if (!schouldBeVisible && isVisible) { // animate out
             $('#bubble' + i).removeClass('bounceInLeft');
             $('#bubble' + i).addClass('bounceOutLeft');
@@ -50,7 +50,7 @@ define(
           var bubbleInfo = bubbles[i];
           $('body').append(BubbleTemplate);
           $('#newBubble').text(bubbleInfo['small_text']).attr("id",
-              'bubble' + i);
+              'bubble' + i).hide();
         }
       }
 
@@ -59,9 +59,13 @@ define(
         var videoHeight = $('#video-element').height();
         console.log(videoHeight);
         $('.text-bubble').each(function() {
+          var bubbleWidth=$(this).width();
+          var bubbleHeight=$(this).height();
+          var newLeft=Math.round((videoWidth-bubbleWidth)*Math.random());
+          var newTop=Math.round((videoHeight-bubbleHeight)*Math.random());
           $(this).css({
-            'top': '50px',
-            'left': '50px'
+            'top': newTop+'px',
+            'left': newLeft+'px'
           });
         });
       }
