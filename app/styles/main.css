@@ -83,3 +83,9 @@ body {
   top: 150px;
   width: 100%;
 }
+
+#anitest {
+    -vendor-animation-duration: 3s;
+    -vendor-animation-delay: 20s;
+    -vendor-animation-iteration-count: infinite;
+}
