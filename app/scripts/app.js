@@ -1,10 +1,10 @@
 /*global define */
 
-define(['video', 'parallax'], function(Video, Parallax) {
+define(['video', 'bubbles'], function(Video, Bubbles) {
   'use strict';
-  //Video.initialize();
-   
-  Parallax.initialize();
+  Video.initialize();
+  Bubbles.initialize();
+//  Parallax.initialize();
   
   return "";
 });

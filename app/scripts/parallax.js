@@ -2,36 +2,35 @@ define(['jquery', 'text!templates/parallaxTemplate.html'], function($,
     ParallaxTemplate) {
   'use strict';
   var that = this;
-  var window = $(window);
   var yPos;
-
+  var mrg=50;
+  
+  
+  
+  function onProgress(){
+    var progress = $(window).scrollTop() / $('body').height();
+    console.log(progress);
+  }
+    
+ 
+  
   return {
     initialize: function() {
+      $(window).scroll(function(){onProgress();});
       $('body').html(ParallaxTemplate);
-//      $('section[data-type="background"]').each(function() {
-//        var $bgobj = $(this); // assigning the object
-//        window.scroll(function() {
-//          yPos = -($window.scrollTop() / $bgobj.data('speed'));
-//          console.log(yPos);
-//        });
-//      });
-      
-      $('section[data-type="background"]').each(function(){
-        var $bgobj = $(this); // assigning the object
-     
-        window.scroll(function() {
-            var yPos = -($window.scrollTop() / $bgobj.data('speed'));
-             
-            // Put together our final background position
-            var coords = '50% '+ yPos + 'px';
- 
-            // Move the background
-            $bgobj.css({ backgroundPosition: coords });
-            alert("fdhdf");
-        });
-    });    
-      
-
+      $('#anibutton').click(function(){
+//        $('#anitest').toggleClass('animated bounceOutRight');
+        if($('#anitest').hasClass('animated bounceOutRight')){
+          $('#anitest').removeClass('animated bounceOutRight').css('margin-left',mrg+'px');
+          $('#anitest').addClass('animated bounceInRight');
+        }else{
+          
+          $('#anitest').removeClass('animated bounceInRight');
+          $('#anitest').addClass('animated bounceOutRight');
+          mrg=mrg+50;
+        }
+      });
+       
     }
   };
 });
