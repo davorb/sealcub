@@ -29,14 +29,27 @@ body {
     padding: 0.2em 0;
 }
 
-.text-bubble {
 
+
+.text-bubble {
+	
 	position:fixed;
 	top:0px;
 	left:0px;
-    font-size: 40px;
-    width:200px;
-    height:400px;
+	
+    background:url('http://i.imgur.com/B19Zb.jpg');
+    background-repeat: no-repeat;
+    text-align: center;
+    color:#fff;
+    font-size:1.1em;
+    height:140px;
+    width:140px;
+    line-height: 118px;  
+}
+.text-bubble a{
+    vertical-align: middle;
+    color:yellow;
+    text-align:center
 }
 
 #video-element {

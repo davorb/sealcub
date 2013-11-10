@@ -14,14 +14,14 @@ define(
           {
             "start": "0.3",
             "stop": "0.7",
-            "small_text": "Java",
+            "small_text": "PHP",
             "full_text": "Programmerade för ett företag som heter  Nilssons AB i java under tre år"
           },
           {
             "start": "0.35",
             "stop": "0.8",
-            "small_text": "Java",
-            "full_text": "Programmerade för ett företag som heter  Nilssons AB i java under tre år"
+            "small_text": "Perl",
+            "full_text": "\"There once was a girl that programmed in perl\""
           }, ];
 
       function onScroll() {
@@ -31,13 +31,13 @@ define(
       }
       function animateBubbles(progress) {
         for ( var i = 0; i < bubbles.length; i++) {
-          var schouldBeVisible = (progress > bubbles[i]['start'] && progress < bubbles[i]['stop']);
+          var shouldBeVisible = (progress > bubbles[i]['start'] && progress < bubbles[i]['stop']);
           // console.log(i+' visible:'+schouldBeVisible);
           var isVisible = $('#bubble' + i).hasClass('bounceInLeft');
-          if (schouldBeVisible && !isVisible) { // animate in
+          if (shouldBeVisible && !isVisible) { // animate in
             $('#bubble' + i).removeClass('bounceOutLeft');
             $('#bubble' + i).show().addClass('bounceInLeft');
-          } else if (!schouldBeVisible && isVisible) { // animate out
+          } else if (!shouldBeVisible && isVisible) { // animate out
             $('#bubble' + i).removeClass('bounceInLeft');
             $('#bubble' + i).addClass('bounceOutLeft');
           }
@@ -48,9 +48,12 @@ define(
       function createBubbles() {
         for ( var i = 0; i < bubbles.length; i++) {
           var bubbleInfo = bubbles[i];
-          $('body').append(BubbleTemplate);
-          $('#newBubble').text(bubbleInfo['small_text']).attr("id",
-              'bubble' + i).hide();
+          $('body').append(BubbleTemplate).children('#newBubble').attr("id",
+              'bubble' + i).hide().html('<a>'+bubbleInfo['small_text']+'</a>').hover(function(){
+                $(this).children('a').css({'font-size': '14px'}).text(bubbleInfo['full_text']);
+              }, function(){
+                $(this).children('a').css({'font-size': '40px'}).text(bubbleInfo['small_text']);
+              });
         }
       }
 
