@@ -32,8 +32,8 @@ body {
 .text-bubble {
 
 	position:fixed;
-	top:30px;
-	right:200px;
+	top:0px;
+	left:0px;
     font-size: 40px;
     width:200px;
     height:400px;
