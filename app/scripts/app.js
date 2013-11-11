@@ -1,8 +1,11 @@
 /*global define */
-define(['video'], function (Video) {
+define([
+  'video',
+  'timeline'
+], function(Video,
+            Timeline) {
   'use strict';
-
+  $('body').html('');
+  Timeline.initialize();
   Video.initialize();
-
-  return '\'Allo \'Allo!';
 });

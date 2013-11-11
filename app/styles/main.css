@@ -5,23 +5,6 @@ body {
     color: #333;
 }
 
-.hero-unit {
-    margin: 50px auto 0 auto;
-    width: 300px;
-    font-size: 18px;
-    font-weight: 200;
-    line-height: 30px;
-    background-color: #eee;
-    border-radius: 6px;
-    padding: 60px;
-}
-
-.hero-unit h1 {
-    font-size: 60px;
-    line-height: 1;
-    letter-spacing: -1px;
-}
-
 .browsehappy {
     margin: 0.2em 0;
     background: #ccc;
@@ -31,16 +14,28 @@ body {
 
 .text-bubble {
     font-size: 40px;
-    width:200px;
-    height:400px;
 }
 
 #video-element {
-    position: fixed;
+    //position: fixed;
     top: 0;
     left: 0;
     width: 100% !important;
     height: auto !important;
     margin: 0;
     z-index: -1;
+}
+
+.timeline {
+    left: 0;
+    bottom: 0;
+    position: fixed;
+    //width: 800%;
+    white-space: nowrap;
+    background-color: black;
+    color: white;
+    margin: 0;
+    padding-top: 3px;
+    font-size: 40px;
+    height: 50px !important;
 }
