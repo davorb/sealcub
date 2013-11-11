@@ -12,6 +12,7 @@ define([
 
   $('body').html('');
   Timeline.initialize();
-  Bubbles.initialize();
   Video.initialize();
+  Bubbles.initialize();
+  
 });

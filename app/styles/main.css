@@ -69,7 +69,7 @@ video.fillWidth {
     border-color: transparent #c81e2b;
 }
 
-.text-bubble a{
+.text-bubble p{
     color:yellow;
 }
 
@@ -94,7 +94,7 @@ video.fillWidth {
 }
 
 .timeline {
-    z-index: 30;
+    z-index: 9;
     left: 0;
     bottom: 0;
     position: fixed;

@@ -36,8 +36,8 @@ function extend(anim, left, top)
 //        keyframes.deleteRule("100%");
 //        
 //        // create new 0% and 100% rules with random numbers
-        
-      keyframes.insertRule("0% { -webkit-transform: scale(0); left:"+left+"px; top:"+top+"px; opacity:0.5; }");
+        //console.log("extended:"+left);
+      keyframes.insertRule("0% { -webkit-transform: scale(0); left:"+left+"%; top:"+top+"%; opacity:0.5; }");
 //        keyframes.insertRule("0% { -webkit-transform: rotate("+randomFromTo(-360,360)+"deg); }");
 //        keyframes.insertRule("100% { -webkit-transform: rotate("+randomFromTo(-360,360)+"deg); }");
 //        

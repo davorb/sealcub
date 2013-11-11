@@ -38,15 +38,21 @@ define(
           }, ];
 
       function onScroll() {
+        
         progress = $(window).scrollTop() / $('body').height();
+        DynamicAnimation.setInAnimStartPosition(progress,100);
         animateBubbles(progress);
       }
 
       function animateBubbles(progress) {
+      // console.log();
+        
         for ( var i = 0; i < bubbles.length; i++) {
+          
           var shouldBeVisible = (progress > bubbles[i]['start'] && progress < bubbles[i]['stop']);
           var isVisible = $('#bubble' + i).hasClass('in');
           if (shouldBeVisible && !isVisible) { // animate in
+            
             $('#bubble' + i).removeClass(bubbles[i]['anim_out']).show().addClass(bubbles[i]['anim_in']).addClass('in');
           } else if (!shouldBeVisible && isVisible) { // animate out
             $('#bubble' + i).removeClass(bubbles[i]['anim_in']).removeClass('in').addClass(bubbles[i]['anim_out']);
@@ -60,7 +66,7 @@ define(
           var text1 = bubbleInfo['small_text'];
           var text2 = bubbleInfo['full_text'];
           $('body').append(BubbleTemplate).children('#newBubble').attr("id",
-              'bubble' + i).hide().html('<a>' + text1 + '</a>').hover(onHover(i), onLeaveHover(i));
+              'bubble' + i).hide().html('<p>' + text1 + '</p>').hover(onHover(i), onLeaveHover(i));
         }
       }
       function onHover(bubble){
@@ -68,7 +74,7 @@ define(
           var bubbleInfo = bubbles[bubble];
           var text1 = bubbleInfo['small_text'];
           var text2 = bubbleInfo['full_text'];
-            $('#bubble'+bubble).children('a').css({
+            $('#bubble'+bubble).children('p').css({
               'font-size': '1em'
             }).text(text2);
             $('#bubble'+bubble).removeClass(bubbleInfo['anim_in']);
@@ -80,7 +86,7 @@ define(
         return function(){
           var bubbleInfo = bubbles[bubble];
           var text1 = bubbleInfo['small_text'];
-          $('#bubble'+bubble).children('a').css({
+          $('#bubble'+bubble).children('p').css({
             'font-size': '1em'
           }).text(text1);
           $('#bubble'+bubble).removeClass(bubbleInfo['anim_hover_on']);
@@ -93,18 +99,21 @@ define(
         var videoHeight = $('#video-element').height();
         $('.text-bubble').each(
             function() {
-              var bubbleWidth = $(this).width();
-              var bubbleHeight = $(this).height();
-              var newLeft = Math.round((videoWidth - bubbleWidth)
-                  * Math.random());
-              var newTop = Math.round((videoHeight - bubbleHeight)
-                  * Math.random());
+//              var bubbleWidth = $(this).width();
+//              var bubbleHeight = $(this).height();
+//              var newLeft = Math.round((videoWidth - bubbleWidth)
+//                  * Math.random());
+//              var newTop = Math.round((videoHeight - bubbleHeight)
+//                  * Math.random());
+//              console.log("newtop: "+newTop);
+//              console.log("newtop: "+newLeft);
+              var newLeft=Math.round(80*Math.random())+3;
+              var newTop=Math.round(55*Math.random())+10;
               $(this).css({
-                'top': newTop + 'px',
-                'left': newLeft + 'px'
+                'top': newTop+'%',
+                'left': newLeft+'%'
               });
             });
-        DynamicAnimation.setInAnimStartPosition(videoWidth/2,videoHeight);
       }
 
       return {
