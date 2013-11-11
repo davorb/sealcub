@@ -8,27 +8,27 @@ define(
           {
             "start": "0.05",
             "stop": "0.4",
-            "small_text": "Java",
-            "full_text": "Programmerade för ett företag som heter  Nilssons AB i java under tre år"
+            "small_text": "Utvecklare, Nilssons AB",
+            "full_text": "Programmerade för ett företag som heter Nilssons AB i java under tre år"
           },
           {
             "start": "0.3",
             "stop": "0.7",
-            "small_text": "PHP",
-            "full_text": "Programmerade för ett företag som heter  Nilssons AB i java under tre år"
+            "small_text": "Utvecklare, Perssons AB",
+            "full_text": "Programmerade för ett företag som heter Perssons AB i PHP under tre år"
           },
           {
             "start": "0.35",
             "stop": "0.8",
-            "small_text": "Perl",
-            "full_text": "\"There once was a girl that programmed in perl\""
+            "small_text": "Utvecklare, Anderssons AB",
+            "full_text": "\"Programmerade diverse produkter i Perl.\""
           }, ];
 
       function onScroll() {
         progress = $(window).scrollTop() / $('body').height();
         animateBubbles(progress);
-
       }
+      
       function animateBubbles(progress) {
         for ( var i = 0; i < bubbles.length; i++) {
           var shouldBeVisible = (progress > bubbles[i]['start'] && progress < bubbles[i]['stop']);
