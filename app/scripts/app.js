@@ -14,4 +14,5 @@ define([
   Timeline.initialize();
   Bubbles.initialize();
   Video.initialize();
+  Overview.initialize();
 });

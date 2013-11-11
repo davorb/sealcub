@@ -94,10 +94,30 @@ video.fillWidth {
     z-index: 31;
 }
 
+@-webkit-keyframes pop1 {
+    from { bottom: -53px }
+    to { bottom: 0px }
+}
+
+@-webkit-keyframes pop2 {
+    from { bottom: 0px }
+    to { bottom: -53px }
+}
+
+.pop-in {
+    animation-name: pop1;
+    animation-duration: 0.5s;
+}
+
+.pop-out {
+    animation-name: pop2;
+    animation-duration: 0.5s;
+}
+
 .timeline {
     z-index: 30;
     left: 0;
-    bottom: 0;
+    bottom: -53px;
     position: fixed;
     width: 100%;
     background-color: white;
@@ -160,11 +180,17 @@ video.fillWidth {
 #timeline-events div {
     position: absolute;
     bottom: 9px;
-//    left: 140px;
-
     width: 5px;
     height: 5px;
     background: rgb(102, 102, 102);
-    /* -webkit-border-radius: 6px; */
-    /* border-radius: 10px; */
+}
+
+#overview {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    width: 100% !important;
+    z-index: 100;
+    box-shadow: 0 1px 5px 0 #e9e9e9;
 }
