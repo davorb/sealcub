@@ -13,7 +13,7 @@ define([
 
   return {
     initialize: function() {
-      $('body').html(VideoTemplate);
+      $('body').append(VideoTemplate);
       var cw, ch;
 
       videoElement = document.getElementById('video-element');
