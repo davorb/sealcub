@@ -37,7 +37,7 @@ function extend(anim, left, top)
 //        
 //        // create new 0% and 100% rules with random numbers
         //console.log("extended:"+left);
-      keyframes.insertRule("0% { -webkit-transform: scale(0); left:"+left+"%; top:"+top+"%; opacity:0.5; }");
+      keyframes.insertRule("0% { -webkit-transform: scale(0); left:"+100+"%; top:"+top+"%; opacity:0.5; }");
 //        keyframes.insertRule("0% { -webkit-transform: rotate("+randomFromTo(-360,360)+"deg); }");
 //        keyframes.insertRule("100% { -webkit-transform: rotate("+randomFromTo(-360,360)+"deg); }");
 //        

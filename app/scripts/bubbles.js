@@ -11,7 +11,7 @@ define(
             "small_text": "JAVA",
             "full_text": "Programmerade för ett företag som heter Nilssons AB i java under tre år",
             "anim_in": "specialin",
-            "anim_out": "bounceOutLeft",
+            "anim_out": "bounceOutLeft2",
             "anim_hover_on": "pulsespecial",
             "anim_hover_off": "miniwobble"
           },
@@ -22,7 +22,7 @@ define(
             "full_text": "Programmerade för ett företag som heter Perssons AB i PHP under tre år",
             "anim_in": "specialin",
 
-            "anim_out": "bounceOutLeft",
+            "anim_out": "bounceOutLeft2",
             "anim_hover_on": "pulsespecial",
             "anim_hover_off": "miniwobble"
           }, {
@@ -31,17 +31,50 @@ define(
             "small_text": "Utvecklare, Anderssons AB",
             "full_text": "\"Programmerade diverse produkter i Perl.\"",
             "anim_in": "specialin",
-            "anim_out": "bounceOutLeft",
+            "anim_out": "bounceOutLeft2",
             "anim_hover_on": "pulsespecial",
             "anim_hover_off": "miniwobble"
 
-          }, ];
+          },{
+            "start": "0.40",
+            "stop": "0.50",
+            "small_text": "Bubb2",
+            "full_text": "\"Programmerade diverse produkter i Perl.\"",
+            "anim_in": "specialin",
+            "anim_out": "bounceOutLeft2",
+            "anim_hover_on": "pulsespecial",
+            "anim_hover_off": "miniwobble"
+
+          },{
+            "start": "0.2",
+            "stop": "0.9",
+            "small_text": "Bubb1",
+            "full_text": "\"Programmerade diverse produkter i Perl.\"",
+            "anim_in": "specialin",
+            "anim_out": "bounceOutLeft2",
+            "anim_hover_on": "pulsespecial",
+            "anim_hover_off": "miniwobble"
+
+          },{
+            "start": "0.9",
+            "stop": "0.99",
+            "small_text": "Bubb3",
+            "full_text": "\"Programmerade diverse produkter i Perl.\"",
+            "anim_in": "specialin",
+            "anim_out": "bounceOutLeft2",
+            "anim_hover_on": "pulsespecial",
+            "anim_hover_off": "miniwobble"
+
+          } ];
 
       function onScroll() {
+//        if ($(window).scrollTop() > 3341) {
+          console.log("yolo");
+          progress = $(window).scrollTop() / $('body').height();
+          var top= Math.random()*100;
+          DynamicAnimation.setInAnimStartPosition($('.time-indicator').css('left'), top);
+          animateBubbles(progress);
         
-        progress = $(window).scrollTop() / $('body').height();
-        DynamicAnimation.setInAnimStartPosition(progress,100);
-        animateBubbles(progress);
       }
 
       function animateBubbles(progress) {
