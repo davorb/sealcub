@@ -9,7 +9,7 @@ define([
       scrollPos,
       hasScrolledPastOverview;
 
-  var extraScrollSpace = 300;
+  var extraScrollSpace = 380;
 
   function onScroll() {
     scrollPos = $(window).scrollTop();
