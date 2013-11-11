@@ -15,7 +15,7 @@ define([
 
   $('body').html('');
   Timeline.initialize(extraScrollSpace);
-  Bubbles.initialize();
   Video.initialize();
+  Bubbles.initialize();
   Overview.initialize();
 });
