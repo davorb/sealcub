@@ -10,12 +10,9 @@ define([
             Overview) {
   'use strict';
 
-
-  var extraScrollSpace = 380;
-
   $('body').html('');
-  Timeline.initialize(extraScrollSpace);
-  Video.initialize();
+  Timeline.initialize(10, 115);
+  Video.initialize(100);
   Bubbles.initialize();
   Overview.initialize();
 });

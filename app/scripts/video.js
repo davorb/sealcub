@@ -4,31 +4,29 @@ define([
 ], function($,
             VideoTemplate) {
   'use strict';
-  var videoElement, currentScrollPos, windowHeight;
-  var videoSkip = 40;
+  var videoElement, currentScrollPos, windowHeight, waitBeforePlaying;
   var videoLength = 30; // $('#video-element')[0].seekable.end(0)
 
 
   function onScroll() {
     var newVideoPos;
     currentScrollPos = $(window).scrollTop();
-    if (currentScrollPos >= windowHeight * 1) {
-      videoElement[0].currentTime =
-        videoSkip + videoLength * ($(window).scrollTop()-windowHeight) / $('body').height();
+    if (currentScrollPos >= windowHeight) {
+      videoElement.css('top', '0');
+      if (currentScrollPos >= windowHeight + waitBeforePlaying) {
+        videoElement[0].currentTime =
+          videoLength * ($(window).scrollTop()-windowHeight-waitBeforePlaying) / $('body').height();
+      }
     } else {
       newVideoPos = windowHeight-currentScrollPos;
-      if (newVideoPos >= 0) {
-        videoElement[0].currentTime = 1;
-        videoElement.css('top', (windowHeight-currentScrollPos)+'px');
-        console.log(windowHeight-currentScrollPos);
-      } else {
-        videoElement.css('top', '0');
-      }
+      videoElement[0].currentTime = 0;
+      videoElement.css('top', (windowHeight-currentScrollPos)+'px');
     }
   }
 
   return {
-    initialize: function() {
+    initialize: function(extraScrollSpace) {
+      waitBeforePlaying = extraScrollSpace;
       windowHeight = $(window).height();
       $('body').append(VideoTemplate);
       videoElement = $('#video-element');
