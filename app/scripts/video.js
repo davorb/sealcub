@@ -5,10 +5,11 @@ define([
             VideoTemplate) {
   'use strict';
   var videoElement;
-  var videoLength = 98; // $('#video-element')[0].seekable.end(0)
+  var videoSkip = 40;
+  var videoLength = 30; // $('#video-element')[0].seekable.end(0)
 
   function onScroll() {
-    videoElement.currentTime = videoLength * $(window).scrollTop() / $('body').height();
+    videoElement.currentTime = videoSkip + videoLength * $(window).scrollTop() / $('body').height();
   }
 
   return {
