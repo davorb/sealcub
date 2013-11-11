@@ -1,6 +1,6 @@
 define(
-    ['jquery', 'text!templates/bubble.html'],
-    function($, BubbleTemplate) {
+    ['jquery', 'text!templates/bubble.html', 'dynamicanimation'],
+    function($, BubbleTemplate, DynamicAnimation) {
       'use strict';
       var progress = 0;
 
@@ -45,14 +45,12 @@ define(
       function animateBubbles(progress) {
         for ( var i = 0; i < bubbles.length; i++) {
           var shouldBeVisible = (progress > bubbles[i]['start'] && progress < bubbles[i]['stop']);
-          // console.log(i+' visible:'+schouldBeVisible);
           var isVisible = $('#bubble' + i).hasClass('in');
           if (shouldBeVisible && !isVisible) { // animate in
             $('#bubble' + i).removeClass(bubbles[i]['anim_out']).show().addClass(bubbles[i]['anim_in']).addClass('in');
           } else if (!shouldBeVisible && isVisible) { // animate out
             $('#bubble' + i).removeClass(bubbles[i]['anim_in']).removeClass('in').addClass(bubbles[i]['anim_out']);
           }
-          console.log(isVisible);
         }
       }
 
@@ -93,7 +91,6 @@ define(
       function randomPositions() {
         var videoWidth = $('#video-element').width();
         var videoHeight = $('#video-element').height();
-        console.log(videoHeight);
         $('.text-bubble').each(
             function() {
               var bubbleWidth = $(this).width();
@@ -107,6 +104,7 @@ define(
                 'left': newLeft + 'px'
               });
             });
+        DynamicAnimation.setInAnimStartPosition(videoWidth/2,videoHeight);
       }
 
       return {

@@ -14,7 +14,6 @@ function findKeyframesRule(rule)
             
             // loop through all the rules
             for (var j = 0; j < ss[i].cssRules.length; ++j) {
-                
                 // find the -webkit-keyframe rule whose name matches our passed over parameter and return that rule
                 if (ss[i].cssRules[j].type == window.CSSRule.WEBKIT_KEYFRAMES_RULE && ss[i].cssRules[j].name == rule)
                     return ss[i].cssRules[j];
@@ -26,32 +25,48 @@ function findKeyframesRule(rule)
     }
 
 // remove old keyframes and add new ones
-function change(anim)
+function extend(anim, left, top)
     {
+          
         // find our -webkit-keyframe rule
         var keyframes = findKeyframesRule(anim);
-        
-        // remove the existing 0% and 100% rules
+        //console.log(keyframes);
+//        // remove the existing 0% and 100% rules
         keyframes.deleteRule("0%");
-        keyframes.deleteRule("100%");
+//        keyframes.deleteRule("100%");
+//        
+//        // create new 0% and 100% rules with random numbers
         
-        // create new 0% and 100% rules with random numbers
-        keyframes.insertRule("0% { -webkit-transform: rotate("+randomFromTo(-360,360)+"deg); }");
-        keyframes.insertRule("100% { -webkit-transform: rotate("+randomFromTo(-360,360)+"deg); }");
-        
-        // assign the animation to our element (which will cause the animation to run)
-        document.getElementById('box').style.webkitAnimationName = anim;
+      keyframes.insertRule("0% { -webkit-transform: scale(0); left:"+left+"px; top:"+top+"px; opacity:0.5; }");
+//        keyframes.insertRule("0% { -webkit-transform: rotate("+randomFromTo(-360,360)+"deg); }");
+//        keyframes.insertRule("100% { -webkit-transform: rotate("+randomFromTo(-360,360)+"deg); }");
+//        
+//        // assign the animation to our element (which will cause the animation to run)
+//        document.getElementById('box').style.webkitAnimationName = anim;
     }
 
-// begin the new animation process
-function startChange()
-    {
-        // remove the old animation from our object
-        document.getElementById('box').style.webkitAnimationName = "none";
-        
-        // call the change method, which will update the keyframe animation
-        setTimeout(function(){change("rotate");}, 0);
-    }
+//function insertNewAnimation(name, rules){
+//  var sheet=document.styleSheets;
+//  var index=1;
+//  function addCSSRule(sheet, selector, rules, index) {
+//    if(sheet.insertRule) {
+//      sheet.insertRule(selector + "{" + rules + "}", index);
+//    }
+//    else {
+//      sheet.addRule(selector, rules, index);
+//    }
+//  }
+//}
+
+//// begin the new animation process
+//function startChange()
+//    {
+//        // remove the old animation from our object
+//        document.getElementById('box').style.webkitAnimationName = "none";
+//        
+//        // call the change method, which will update the keyframe animation
+//        setTimeout(function(){change("rotate");}, 0);
+//    }
 
 // get a random number integer between two low/high extremes
 function randomFromTo(from, to){
@@ -65,8 +80,8 @@ function randomFromTo(from, to){
 //    });        
 //});
   return({
-    getCustomInAnim: function(left, top){
-      
+    setInAnimStartPosition: function(left, top){
+      extend("specialin", left, top);
     }
   });
 
