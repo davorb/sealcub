@@ -1,12 +1,10 @@
 body {
     background: #fafafa;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: Cambria, Georgia, sans-serif;
+    /*"Helvetica Neue", Helvetica, Arial, sans-serif;*/
     height: 12000px;
     color: #333;
-}
-
-::-webkit-scrollbar {
-    display: none;
+    font-size: 1em;
 }
 
 .browsehappy {
@@ -19,15 +17,63 @@ body {
 .text-bubble {
     font-size: 40px;
     z-index: 10;
-    position: absolute;
+    -webkit-background-clip: border-box;
+    -webkit-background-origin: padding-box;
+    -webkit-background-size: auto;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgb(51, 51, 51);
+    background-image: none;
+    background-origin: padding-box;
+    background-size: auto;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    color: rgb(255, 255, 255);
+    display: block;
+    font-family: Cambria, Georgia, sans-serif;
+    font-size: 1em;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 22px;
+    margin-bottom: 48px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 50px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    position: fixed;
+    text-align: left;
+    width: fit;
+    height: height;
 }
 
 video.fillWidth {
     width: 100%;
+    font-size:1.1em;
+    height:140px;
+}
+
+.text-bubble:before{
+    top: -20px;
+    bottom: auto;
+    left: auto;
+    right: 60px;
+    border: 0;
+    border-left-width: 30px;
+    border-top-width: 20px;
+    border-color: transparent #c81e2b;
+}
+
+.text-bubble a{
+    color:yellow;
 }
 
 #video-element {
-    //overflow: hidden;
     position: fixed;
     top: 0;
     left: 0;
@@ -35,7 +81,6 @@ video.fillWidth {
     height: auto !important;
     margin: 0;
 }
-
 
 .time-indicator {
     position: fixed;

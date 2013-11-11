@@ -1,11 +1,17 @@
 /*global define */
 define([
   'video',
-  'timeline'
+  'timeline',
+  'bubbles',
+  'overview'
 ], function(Video,
-            Timeline) {
+            Timeline,
+            Bubbles,
+            Overview) {
   'use strict';
+
   $('body').html('');
   Timeline.initialize();
+  Bubbles.initialize();
   Video.initialize();
 });
