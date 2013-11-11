@@ -1,6 +1,7 @@
 body {
     background: #fafafa;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 1em/1.4 Cambria, Georgia, sans-serif;
+    /*"Helvetica Neue", Helvetica, Arial, sans-serif;*/
     height: 12000px;
     color: #333;
 }
@@ -29,9 +30,44 @@ body {
     padding: 0.2em 0;
 }
 
-
-
 .text-bubble {
+  -webkit-background-clip: border-box;
+-webkit-background-origin: padding-box;
+-webkit-background-size: auto;
+background-attachment: scroll;
+background-clip: border-box;
+background-color: rgb(51, 51, 51);
+background-image: none;
+background-origin: padding-box;
+background-size: auto;
+border-bottom-left-radius: 10px;
+border-bottom-right-radius: 10px;
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+color: rgb(255, 255, 255);
+display: block;
+font-family: Cambria, Georgia, sans-serif;
+font-size: 16px;
+font-style: normal;
+font-variant: normal;
+font-weight: normal;
+height: 76px;
+line-height: 22px;
+margin-bottom: 48px;
+margin-left: 0px;
+margin-right: 0px;
+margin-top: 50px;
+padding-bottom: 15px;
+padding-left: 15px;
+padding-right: 15px;
+padding-top: 15px;
+position: fixed;
+text-align: center;
+font-size: 40px;
+width: 470px;
+}
+
+/*.text-bubble {
 	
 	position:fixed;
 	top:0px;
@@ -39,6 +75,7 @@ body {
     background:url('http://i.imgur.com/B19Zb.jpg');
     background-repeat: no-repeat;
     color:#fff;
+<<<<<<< HEAD
     font-size: 40px;  
     text-align:center;
     text-overflow: ellipsis; /* will make [...] at the end */
@@ -46,7 +83,52 @@ body {
     height: 400px
     white-space: nowrap; /* paragraph to one line */
     overflow:hidden; /* older browsers */
+=======
+    font-size:1.1em;
+    height:140px;
+    width:140px;
+    line-height: 118px;  
+}*/
+/*
+.text-bubble {
+  display: block;
+ -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+-webkit-margin-start: 0px;
+-webkit-margin-end: 0px;
+
+  position: relative;
+  padding: 15px;
+  margin: 1em 0 3em;
+  color: #fff;
+
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#c81e2b), to(#f04349));
+  background: -moz-linear-gradient(#c81e2b, #f04349);
+  background: -o-linear-gradient(#c81e2b, #f04349);
+  background: linear-gradient(#c81e2b, #f04349);
+>>>>>>> 6813be446fa5f5d7e68fdc8cdec65f1bed654b34
+}*/
+
+.text-bubble:before{
+
+top: -20px;
+bottom: auto;
+left: auto;
+right: 60px;
+border: 0;
+border-left-width: 30px;
+border-top-width: 20px;
+border-color: transparent #c81e2b;
 }
+
+.text-bubble:after{
+  
+}*/
+
 .text-bubble a{
     color:yellow; 
 }
@@ -101,4 +183,52 @@ body {
     -vendor-animation-duration: 3s;
     -vendor-animation-delay: 20s;
     -vendor-animation-iteration-count: infinite;
+}
+/*mini wobble*/
+
+@-webkit-keyframes miniwobble {
+  0% { -webkit-transform: translateX(0%); }
+  15% { -webkit-transform: translateX(-2.5%) rotate(-1deg); }
+  30% { -webkit-transform: translateX(1.5%) rotate(1deg); }
+  45% { -webkit-transform: translateX(-1%) rotate(-1deg); }
+  60% { -webkit-transform: translateX(0.5%) rotate(1deg); }
+  75% { -webkit-transform: translateX(-0.5%) rotate(-1deg); }
+  100% { -webkit-transform: translateX(0%); }
+}
+
+@-moz-keyframes miniwobble {
+  0% { -moz-transform: translateX(0%); }
+  15% { -moz-transform: translateX(-2.5%) rotate(-1deg); }
+  30% { -moz-transform: translateX(1.5%) rotate(1deg); }
+  45% { -moz-transform: translateX(-1%) rotate(-1deg); }
+  60% { -moz-transform: translateX(0.5%) rotate(1deg); }
+  75% { -moz-transform: translateX(-0.5%) rotate(-1deg); }
+  100% { -moz-transform: translateX(0%); }
+}
+
+@-o-keyframes miniwobble {
+  0% { -o-transform: translateX(0%); }
+  15% { -o-transform: translateX(-2.5%) rotate(-1deg); }
+  30% { -o-transform: translateX(1.5%) rotate(1deg); }
+  45% { -o-transform: translateX(-1%) rotate(-1deg); }
+  60% { -o-transform: translateX(0.5%) rotate(1deg); }
+  75% { -o-transform: translateX(-0.5%) rotate(-1deg); }
+  100% { -o-transform: translateX(0%); }
+}
+
+@keyframes miniwobble {
+  0% { transform: translateX(0%); }
+  15% { transform: translateX(-2.5%) rotate(-1deg); }
+  30% { transform: translateX(1.5%) rotate(1deg); }
+  45% { transform: translateX(-1%) rotate(-1deg); }
+  60% { transform: translateX(0.5%) rotate(1deg); }
+  75% { transform: translateX(-0.5%) rotate(-1deg); }
+  100% { transform: translateX(0%); }
+}
+
+.animated.miniwobble {
+	-webkit-animation-name: miniwobble;
+	-moz-animation-name: miniwobble;
+	-o-animation-name: miniwobble;
+	animation-name: miniwobble;
 }
