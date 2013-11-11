@@ -7,14 +7,13 @@ define([
       windowWidth,
       windowHeight,
       scrollPos,
-      hasScrolledPastOverview;
-
-  var extraScrollSpace = 380;
+      hasScrolledPastOverview,
+      extraScrollSpace;
 
   function onScroll() {
     scrollPos = $(window).scrollTop();
-    var windowPercentage = scrollPos / $('body').height();
-    $('.time-indicator').css('left', windowPercentage*windowWidth-10);
+    var windowPercentage = (scrollPos-$(window).height()-extraScrollSpace) / $('body').height();
+    $('.time-indicator').css('left', windowPercentage*windowWidth-15);
 
     if (scrollPos >= windowHeight + extraScrollSpace) {
       hasScrolledPastOverview = true;
@@ -30,7 +29,8 @@ define([
   }
 
   return {
-    initialize: function() {
+    initialize: function(scrollSpace) {
+      extraScrollSpace = scrollSpace;
       $('body').prepend(TimelineTemplate);
       timelineWidth = $('.timeline').width();
       windowWidth = $(window).width();
