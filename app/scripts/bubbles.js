@@ -10,9 +10,9 @@ define(
             "stop": "0.4",
             "small_text": "JAVA",
             "full_text": "Programmerade för ett företag som heter Nilssons AB i java under tre år",
-            "anim_in": "bounceInLeft",
+            "anim_in": "specialin",
             "anim_out": "bounceOutLeft",
-            "anim_hover_on": "pulse",
+            "anim_hover_on": "pulsespecial",
             "anim_hover_off": "miniwobble"
           },
           {
@@ -20,18 +20,18 @@ define(
             "stop": "0.7",
             "small_text": "PHP",
             "full_text": "Programmerade för ett företag som heter Perssons AB i PHP under tre år",
-            "anim_in": "bounceInLeft",
+            "anim_in": "specialin",
             "anim_out": "bounceOutLeft",
-            "anim_hover_on": "pulse",
+            "anim_hover_on": "pulsespecial",
             "anim_hover_off": "miniwobble"
           }, {
             "start": "0.35",
             "stop": "0.8",
             "small_text": "Utvecklare, Anderssons AB",
             "full_text": "\"Programmerade diverse produkter i Perl.\"",
-            "anim_in": "bounceInLeft",
+            "anim_in": "specialin",
             "anim_out": "bounceOutLeft",
-            "anim_hover_on": "pulse",
+            "anim_hover_on": "pulsespecial",
             "anim_hover_off": "miniwobble"
 
           }, ];
