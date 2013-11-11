@@ -21,6 +21,7 @@ define(
             "small_text": "PHP",
             "full_text": "Programmerade för ett företag som heter Perssons AB i PHP under tre år",
             "anim_in": "specialin",
+
             "anim_out": "bounceOutLeft",
             "anim_hover_on": "pulsespecial",
             "anim_hover_off": "miniwobble"
@@ -70,7 +71,7 @@ define(
           var text1 = bubbleInfo['small_text'];
           var text2 = bubbleInfo['full_text'];
             $('#bubble'+bubble).children('a').css({
-              'font-size': '14px'
+              'font-size': '1em'
             }).text(text2);
             $('#bubble'+bubble).removeClass(bubbleInfo['anim_in']);
             $('#bubble'+bubble).addClass(bubbleInfo['anim_hover_on']);
@@ -82,7 +83,7 @@ define(
           var bubbleInfo = bubbles[bubble];
           var text1 = bubbleInfo['small_text'];
           $('#bubble'+bubble).children('a').css({
-            'font-size': '40px'
+            'font-size': '1.25em'
           }).text(text1);
           $('#bubble'+bubble).removeClass(bubbleInfo['anim_hover_on']);
           $('#bubble'+bubble).addClass(bubbleInfo['anim_hover_off']);

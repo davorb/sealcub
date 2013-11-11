@@ -47,11 +47,11 @@ border-top-right-radius: 10px;
 color: rgb(255, 255, 255);
 display: block;
 font-family: Cambria, Georgia, sans-serif;
-font-size: 16px;
+font-size: 1em;
 font-style: normal;
 font-variant: normal;
 font-weight: normal;
-height: 76px;
+
 line-height: 22px;
 margin-bottom: 48px;
 margin-left: 0px;
@@ -62,9 +62,9 @@ padding-left: 15px;
 padding-right: 15px;
 padding-top: 15px;
 position: fixed;
-text-align: center;
-font-size: 40px;
-width: 470px;
+text-align: left;
+width: fit;
+height: height;
 }
 
 /*.text-bubble {
