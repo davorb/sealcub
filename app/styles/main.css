@@ -54,8 +54,6 @@ body {
 
 video.fillWidth {
     width: 100%;
-    font-size:1.1em;
-    height:140px;
 }
 
 .text-bubble:before{
@@ -154,4 +152,16 @@ video.fillWidth {
     font-size: 16px;
     font-weight: 600;
     position: absolute;
+}
+
+#timeline-events div {
+    position: absolute;
+    bottom: 9px;
+//    left: 140px;
+
+    width: 5px;
+    height: 5px;
+    background: rgb(102, 102, 102);
+    /* -webkit-border-radius: 6px; */
+    /* border-radius: 10px; */
 }
