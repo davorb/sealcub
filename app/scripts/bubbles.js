@@ -21,7 +21,7 @@ define(
             "start": "0.35",
             "stop": "0.8",
             "small_text": "Perl",
-            "full_text": "\"There once was a girl that programmed in perl\""
+            "full_text": "\"There once was a girl who programmed in perl\""
           }, ];
 
       function onScroll() {
@@ -48,11 +48,14 @@ define(
       function createBubbles() {
         for ( var i = 0; i < bubbles.length; i++) {
           var bubbleInfo = bubbles[i];
+          var text1=bubbleInfo['small_text'];
+          var text2=bubbleInfo['full_text'];
           $('body').append(BubbleTemplate).children('#newBubble').attr("id",
-              'bubble' + i).hide().html('<a>'+bubbleInfo['small_text']+'</a>').hover(function(){
-                $(this).children('a').css({'font-size': '14px'}).text(bubbleInfo['full_text']);
+              'bubble' + i).hide().html('<a>'+text1+'</a>').hover(function(num){
+                console.log("hover"+num);
+                $(this).children('a').css({'font-size': '14px'}).text(text2);
               }, function(){
-                $(this).children('a').css({'font-size': '40px'}).text(bubbleInfo['small_text']);
+                $(this).children('a').css({'font-size': '40px'}).text(text1);
               });
         }
       }

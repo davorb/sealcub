@@ -36,20 +36,19 @@ body {
 	position:fixed;
 	top:0px;
 	left:0px;
-	
     background:url('http://i.imgur.com/B19Zb.jpg');
     background-repeat: no-repeat;
-    text-align: center;
     color:#fff;
-    font-size:1.1em;
-    height:140px;
-    width:140px;
-    line-height: 118px;  
+    font-size: 40px;  
+    text-align:center;
+    text-overflow: ellipsis; /* will make [...] at the end */
+    width: 400px; /* change to your preferences */
+    height: 400px
+    white-space: nowrap; /* paragraph to one line */
+    overflow:hidden; /* older browsers */
 }
 .text-bubble a{
-    vertical-align: middle;
-    color:yellow;
-    text-align:center
+    color:yellow; 
 }
 
 #video-element {
