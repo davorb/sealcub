@@ -81,7 +81,7 @@ define(
           var bubbleInfo = bubbles[bubble];
           var text1 = bubbleInfo['small_text'];
           $('#bubble'+bubble).children('a').css({
-            'font-size': '1.25em'
+            'font-size': '1em'
           }).text(text1);
           $('#bubble'+bubble).removeClass(bubbleInfo['anim_hover_on']);
           $('#bubble'+bubble).addClass(bubbleInfo['anim_hover_off']);
