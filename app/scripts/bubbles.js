@@ -60,7 +60,7 @@ define(
           var text1 = bubbleInfo['small_text'];
           var text2 = bubbleInfo['full_text'];
           $('body').append(BubbleTemplate).children('#newBubble').attr("id",
-              'bubble' + i).hide().html('<a>' + text1 + '</a>').hover(onHover(i), onLeaveHover(i));
+              'bubble'+i).hide().children('strong').html(text1).hover(onHover(i), onLeaveHover(i));
         }
       }
       function onHover(bubble){
@@ -73,7 +73,6 @@ define(
             }).text(text2);
             $('#bubble'+bubble).removeClass(bubbleInfo['anim_in']);
             $('#bubble'+bubble).addClass(bubbleInfo['anim_hover_on']);
-          
         };
       }
       function onLeaveHover(bubble){
