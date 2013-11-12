@@ -13,10 +13,15 @@ define([
 
   function onScroll() {
     scrollPos = $(window).scrollTop();
-    var windowPercentage = (scrollPos-$(window).height()-seekerStartTime) / $('body').height();
-    $('.time-indicator').css('left', windowPercentage*windowWidth-15);
 
     if (scrollPos >= windowHeight + extraScrollSpace) {
+      var s = $(window).scrollTop(),
+          d = $(document).height() - $(window).height(),
+          c = $(window).height();
+      var windowPercentage = ((s-$(window).height()) / (d-c));
+
+      $('.time-indicator').css('left', windowPercentage*windowWidth-12);
+      console.log(windowPercentage);
       hasScrolledPastOverview = true;
       $('.timeline').removeClass('pop-out');
       $('.timeline').addClass('pop-in');
