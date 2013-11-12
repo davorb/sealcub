@@ -33,7 +33,15 @@ define(
         console.log(currPos + " ch " + pxch);
         //console.log(direction);
       }
+
+
+//=======
       bubbles[i]['pos'] = (currPos + (speed));
+      //animate
+      //var currPos = bubble.css('left');
+      //currPos = currPos.substring(0, currPos.length - 2);
+      //var newVal = (parseFloat(currPos) + (progressChange) * speed);
+//>>>>>>> landingpage
 
       drawBubble($('#bubble' + i), bubbles[i]);
     }
@@ -69,32 +77,30 @@ define(
       var text1 = bubbleInfo['small_text'];
       var text2 = bubbleInfo['full_text'];
       $('body').append(BubbleTemplate).children('#newBubble').attr("id",
-          'bubble' + i).html('<p>' + text1 + '</p>').hover(onHover(i),
-          onLeaveHover(i));
+          'bubble'+i).children('strong').html(text1).hover(onHover(i), onLeaveHover(i));
     }
   }
-  function onHover(bubble) {
-    return function() {
+  function onHover(bubble){
+    return function(){
       var bubbleInfo = bubbles[bubble];
       var text1 = bubbleInfo['small_text'];
       var text2 = bubbleInfo['full_text'];
-      $('#bubble' + bubble).children('p').css({
-        'font-size': '1em'
-      }).text(text2);
-      $('#bubble' + bubble).removeClass(bubbleInfo['anim_in']);
-      $('#bubble' + bubble).addClass(bubbleInfo['anim_hover_on']);
-
+        $('#bubble'+bubble).children('a').css({
+          'font-size': '1em'
+        }).text(text2);
+        $('#bubble'+bubble).removeClass(bubbleInfo['anim_in']);
+        $('#bubble'+bubble).addClass(bubbleInfo['anim_hover_on']);
     };
   }
-  function onLeaveHover(bubble) {
-    return function() {
+  function onLeaveHover(bubble){
+    return function(){
       var bubbleInfo = bubbles[bubble];
       var text1 = bubbleInfo['small_text'];
-      $('#bubble' + bubble).children('p').css({
+      $('#bubble'+bubble).children('a').css({
         'font-size': '1em'
       }).text(text1);
-      $('#bubble' + bubble).removeClass(bubbleInfo['anim_hover_on']);
-      $('#bubble' + bubble).addClass(bubbleInfo['anim_hover_off']);
+      $('#bubble'+bubble).removeClass(bubbleInfo['anim_hover_on']);
+      $('#bubble'+bubble).addClass(bubbleInfo['anim_hover_off']);
     };
   }
 
