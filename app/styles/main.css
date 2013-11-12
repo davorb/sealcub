@@ -67,7 +67,7 @@ body {
     margin-left: -24px;
     margin-right: 0px;
     padding: 0;
-    width: 378px; // kolla bredden pa .text-bubble!
+    width: 378px; /* kolla bredden pa .text-bubble! */
 }
 
 video.fillWidth {
