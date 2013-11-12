@@ -1,7 +1,7 @@
 define(
 [
   'jquery',
-  'text!templates/overview.html'
+  'text!templates/overviewTemplate.html'
 ], function($, OverviewTemplate) {
   'use strict';
   return {
