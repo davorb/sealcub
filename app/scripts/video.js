@@ -4,21 +4,35 @@ define([
 ], function($,
             VideoTemplate) {
   'use strict';
-  var videoElement;
-  var videoSkip = 40;
+  var videoElement, currentScrollPos, windowHeight, waitBeforePlaying;
   var videoLength = 30; // $('#video-element')[0].seekable.end(0)
+  var windowStartPos;
 
   function onScroll() {
-    videoElement.currentTime = videoSkip + videoLength * $(window).scrollTop() / $('body').height();
+    var newVideoPos;
+    currentScrollPos = $(window).scrollTop();
+    if (currentScrollPos >= windowHeight) { //height
+      videoElement.css('top', '0');
+      if (currentScrollPos >= windowHeight + waitBeforePlaying) {
+        videoElement[0].currentTime =
+          videoLength * ($(window).scrollTop()-windowHeight-waitBeforePlaying) / $('body').height();
+      }
+    } else {
+      newVideoPos = windowStartPos-currentScrollPos*0.7; //height
+      videoElement[0].currentTime = 0;
+      if (newVideoPos >= 0) {
+        videoElement.css('top', newVideoPos+'px');
+      }
+    }
   }
 
   return {
-    initialize: function() {
+    initialize: function(extraScrollSpace) {
+      waitBeforePlaying = extraScrollSpace;
+      windowHeight = $(window).height();
+      windowStartPos = windowHeight * 0.7;
       $('body').append(VideoTemplate);
-      var cw, ch;
-
-      videoElement = document.getElementById('video-element');
-
+      videoElement = $('#video-element');
       $(window).scroll(onScroll);
     }
   };

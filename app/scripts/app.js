@@ -11,8 +11,8 @@ define([
   'use strict';
 
   $('body').html('');
-  Timeline.initialize();
-  Video.initialize();
+  Timeline.initialize(10, 115);
+  Video.initialize(100);
   Bubbles.initialize();
-  
+  Overview.initialize();
 });
