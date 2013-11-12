@@ -4,7 +4,7 @@
             "stop": "0.14",
             "title": "Software Developer",
             "company":"Schneider Electric Buildings AB",
-            "date": "October 2012 – Present | Malmo, Sweden",
+            "date": "Oct 2012 – Present | Malmo, Sweden",
             "content": "Building automation server software development. C++ development with focus data correctness and performance."
           },
           {
@@ -12,42 +12,42 @@
             "stop": "0.22",
             "title": "Software Developer",
             "company":"Sony Mobile Communications",
-            "date": "October 2011 – October 2012 | Lund, Sweden",
+            "date": "Oct 2011 – Oct 2012 | Lund, Sweden",
             "content": "Android multimedia middleware development, primarily within the Stagefright framework."
           }, {
             "start": "0.14",
             "stop": "0.54",
             "title": "Software Engineer",
             "company":"Tactel AB",
-            "date": "September 2007 – October 2012 | Lund, Sweden",
+            "date": "Sep 2007 – Oct 2012 | Lund, Sweden",
             "content": "Consultant/Contractor in the telecom industry."
           }, {
             "start": "0.22",
             "stop": "0.29",
             "title": "Senior Software Developer",
             "company":"Intel",
-            "date": "October 2010 – September 2011 | Lund, Sweden",
+            "date": "Oct 2010 – Sep 2011 | Lund, Sweden",
             "content": "Development of test tools and components for multimedia framework in C. Middleware development for hw accelerated video encoding/decoding."
           }, {
             "start": "0.29",
             "stop": "0.34",
             "title": "Software Engineer",
             "company":"Tactel AB",
-            "date": "March 2010 – September 2010 | Lund, Sweden",
+            "date": "Mar 2010 – Sep 2010 | Lund, Sweden",
             "content": "Development on multi platform application framework (initially Android + Windows). Threading, task management and graphical rendering to work on both platforms."
           }, {
             "start": "0.34",
             "stop": "0.45",
             "title": "Software Developer",
             "company":"Sony Ericsson Mobile Communications",
-            "date": "October 2008 – March 2010 | Lund, Sweden",
+            "date": "Oct 2008 – Mar 2010 | Lund, Sweden",
             "content": "Development of multimedia/PIM shell application for Windows Mobile. Focus on handling system integration and concurrency issues."
           }, {
             "start": "0.45",
             "stop": "0.54",
             "title": "Software Developer",
             "company":"Sony Ericsson",
-            "date": "October 2007 – October 2008 | Lund, Sweden",
+            "date": "Oct 2007 – Oct 2008 | Lund, Sweden",
             "content": "Development of media playback application for Windows Mobile, including parts of a custom OpenGL UI."
           }, {
             "start": "0.54",
