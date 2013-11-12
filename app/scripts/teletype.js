@@ -9,7 +9,7 @@ define(['jquery'], function($) {
     $.each(settings.text.split(''), function(i, letter){
       setTimeout(function(){
         $this.html($this.html() + letter);
-      }, settings.animDelay * i * (Math.random() + 0.3));
+      }, settings.animDelay * i);
     });
   };
 });

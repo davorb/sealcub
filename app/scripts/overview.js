@@ -12,9 +12,13 @@ define(
       $('body').prepend(OverviewTemplate);
       $('#overview').css('height',
                          $(window).height());
-      $('#intro-text').teletype({
-        animDelay: 150,
-        text: 'Hi.'
+      // $('#intro-text').teletype({
+      //   animDelay: 100,
+      //   text: 'john smith'
+      // });
+      $('#intro-title').teletype({
+        animDelay: 120,
+        text: 'developer'
       });
     }
   };
