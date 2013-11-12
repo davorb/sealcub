@@ -54,6 +54,7 @@ body {
     font-weight:400;
 }
 
+
 .text-bubble p {
     margin-top: 14px;
 }
@@ -71,6 +72,7 @@ body {
 
 video.fillWidth {
     width: 100%;
+
 }
 
 #video-element {
@@ -114,7 +116,7 @@ video.fillWidth {
 }
 
 .timeline {
-    z-index: 30;
+    z-index: 9;
     left: 0;
     bottom: -53px;
     position: fixed;
@@ -181,6 +183,7 @@ video.fillWidth {
     width: 5px;
     height: 5px;
     background: rgb(102, 102, 102);
+
 }
 
 #overview {
