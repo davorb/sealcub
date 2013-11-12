@@ -1,6 +1,7 @@
 [
           {
             "start": "0.05",
+            "left": "500px",
             "stop": "0.4",
             "small_text": "JAVA",
             "full_text": "Programmerade för ett företag som heter Nilssons AB i java under tre år",

@@ -13,6 +13,22 @@ define(
   'use strict';
   var bubbles;
 
+  function setXY(bubble, index) {
+    if (bubble.left) {
+      $('.text-bubble:eq('+index+')').css('left',
+                                          bubble.left);
+    } else if (bubble.right) {
+      $('.text-bubble:eq('+index+')').css('right',
+                                          bubble.right);
+    } else if (bubble.bottom) {
+      $('.text-bubble:eq('+index+')').css('bottom',
+                                          bubble.bottom);
+    } else if (bubble.top) {
+      $('.text-bubble:eq('+index+')').css('top',
+                                          bubble.top);
+    }
+  }
+
   function onScroll() {
     // Update state changes
     var s = $(window).scrollTop(),
@@ -37,14 +53,17 @@ define(
     initialize: function() {
       $(window).scroll(onScroll);
       bubbles = JSON.parse(BubbleJSON);
-      _.each(bubbles, function(bubble) {
+      var bubble;
+      for (var i=0; i < bubbles.length; i++) {
+        bubble = bubbles[i];
         $('#bubble-holder').append(_.template(BubbleTemplate, {
           title: bubble.small_text,
           date: "myDate",
           mainText: bubble.full_text,
           image: null
         }));
-      });
+        setXY(bubble, i);
+      }
     }
   };
 });
