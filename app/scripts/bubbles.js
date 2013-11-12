@@ -10,7 +10,12 @@ define(
 
   function onScroll() {
     // Update state changes
-    var newProgress = $(window).scrollTop() / $('body').height();
+    var s = $(window).scrollTop(),
+        d = $(document).height() - $(window).height(),
+        c = $(window).height();
+    var newProgress = ((s-$(window).height()) / (d-c));
+
+    //pvar newProgress = $(window).scrollTop() / $('body').height();
     var progress = oldprogress - newProgress;
     oldprogress = newProgress;
 
