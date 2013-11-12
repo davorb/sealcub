@@ -1,159 +1,127 @@
 define(
-    ['jquery', 'text!templates/bubble.html', 'dynamicanimation'],
-    function($, BubbleTemplate, DynamicAnimation) {
-      'use strict';
-      var progress = 0;
+    ['jquery', 'text!templates/bubble.html', 'dynamicanimation',
+    'text!data/bubble.json'], function($, BubbleTemplate, DynamicAnimation,
+    BubbleJSON) {
+  'use strict';
+  var startLeft = $('#video-element').width();
+  var endLeft = 0;
+  var oldprogress = 0;
+  var bubbles = JSON.parse(BubbleJSON);
 
-      var bubbles = [
-          {
-            "start": "0.05",
-            "stop": "0.4",
-            "small_text": "JAVA",
-            "full_text": "Programmerade för ett företag som heter Nilssons AB i java under tre år",
-            "anim_in": "specialin",
-            "anim_out": "bounceOutLeft2",
-            "anim_hover_on": "pulsespecial",
-            "anim_hover_off": "miniwobble"
-          },
-          {
-            "start": "0.3",
-            "stop": "0.7",
-            "small_text": "PHP",
-            "full_text": "Programmerade för ett företag som heter Perssons AB i PHP under tre år",
-            "anim_in": "specialin",
+  function onScroll() {
+    // Update state changes
+    var newProgress = $(window).scrollTop() / $('body').height();
+    var progress = oldprogress - newProgress;
+    oldprogress = newProgress;
 
-            "anim_out": "bounceOutLeft2",
-            "anim_hover_on": "pulsespecial",
-            "anim_hover_off": "miniwobble"
-          }, {
-            "start": "0.35",
-            "stop": "0.8",
-            "small_text": "Utvecklare, Anderssons AB",
-            "full_text": "\"Programmerade diverse produkter i Perl.\"",
-            "anim_in": "specialin",
-            "anim_out": "bounceOutLeft2",
-            "anim_hover_on": "pulsespecial",
-            "anim_hover_off": "miniwobble"
+    //        var top = Math.random() * 100;
+    // DynamicAnimation.setInAnimStartPosition($('.time-indicator').css('left'),
+    // top);
+    animateBubbles(progress * 100);
 
-          },{
-            "start": "0.40",
-            "stop": "0.50",
-            "small_text": "Bubb2",
-            "full_text": "\"Programmerade diverse produkter i Perl.\"",
-            "anim_in": "specialin",
-            "anim_out": "bounceOutLeft2",
-            "anim_hover_on": "pulsespecial",
-            "anim_hover_off": "miniwobble"
+  }
 
-          },{
-            "start": "0.2",
-            "stop": "0.9",
-            "small_text": "Bubb1",
-            "full_text": "\"Programmerade diverse produkter i Perl.\"",
-            "anim_in": "specialin",
-            "anim_out": "bounceOutLeft2",
-            "anim_hover_on": "pulsespecial",
-            "anim_hover_off": "miniwobble"
+  function animateBubbles(progress) { //progress in precent
+    console.log("Progress: " + progress);
+    for ( var i = 0; i < bubbles.length; i++) {
+      var pxch = bubbles[i]['speed'] * progress;
+      var speed = Math.round(pxch);
 
-          },{
-            "start": "0.9",
-            "stop": "0.99",
-            "small_text": "Bubb3",
-            "full_text": "\"Programmerade diverse produkter i Perl.\"",
-            "anim_in": "specialin",
-            "anim_out": "bounceOutLeft2",
-            "anim_hover_on": "pulsespecial",
-            "anim_hover_off": "miniwobble"
-
-          } ];
-
-      function onScroll() {
-//        if ($(window).scrollTop() > 3341) {
-          console.log("yolo");
-          progress = $(window).scrollTop() / $('body').height();
-          var top= Math.random()*100;
-          DynamicAnimation.setInAnimStartPosition($('.time-indicator').css('left'), top);
-          animateBubbles(progress);
-        
+      var currPos = bubbles[i]['pos'];
+      if (i == 0) {
+        console.log("Speed:" + bubbles[i]['speed']);
+        console.log(currPos + " ch " + pxch);
+        //console.log(direction);
       }
 
-      function animateBubbles(progress) {
-      // console.log();
-        
-        for ( var i = 0; i < bubbles.length; i++) {
-          
-          var shouldBeVisible = (progress > bubbles[i]['start'] && progress < bubbles[i]['stop']);
-          var isVisible = $('#bubble' + i).hasClass('in');
-          if (shouldBeVisible && !isVisible) { // animate in
-            
-            $('#bubble' + i).removeClass(bubbles[i]['anim_out']).show().addClass(bubbles[i]['anim_in']).addClass('in');
-          } else if (!shouldBeVisible && isVisible) { // animate out
-            $('#bubble' + i).removeClass(bubbles[i]['anim_in']).removeClass('in').addClass(bubbles[i]['anim_out']);
-          }
-        }
-      }
+      bubbles[i]['pos'] = (currPos + (speed));
+      //animate
+      //var currPos = bubble.css('left');
+      //currPos = currPos.substring(0, currPos.length - 2);
+      //var newVal = (parseFloat(currPos) + (progressChange) * speed);
 
-      function createBubbles() {
-        for ( var i = 0; i < bubbles.length; i++) {
-          var bubbleInfo = bubbles[i];
-          var text1 = bubbleInfo['small_text'];
-          var text2 = bubbleInfo['full_text'];
-          $('body').append(BubbleTemplate).children('#newBubble').attr("id",
-              'bubble' + i).hide().html('<p>' + text1 + '</p>').hover(onHover(i), onLeaveHover(i));
-        }
-      }
-      function onHover(bubble){
-        return function(){
-          var bubbleInfo = bubbles[bubble];
-          var text1 = bubbleInfo['small_text'];
-          var text2 = bubbleInfo['full_text'];
-            $('#bubble'+bubble).children('p').css({
-              'font-size': '1em'
-            }).text(text2);
-            $('#bubble'+bubble).removeClass(bubbleInfo['anim_in']);
-            $('#bubble'+bubble).addClass(bubbleInfo['anim_hover_on']);
-          
-        };
-      }
-      function onLeaveHover(bubble){
-        return function(){
-          var bubbleInfo = bubbles[bubble];
-          var text1 = bubbleInfo['small_text'];
-          $('#bubble'+bubble).children('p').css({
-            'font-size': '1em'
-          }).text(text1);
-          $('#bubble'+bubble).removeClass(bubbleInfo['anim_hover_on']);
-          $('#bubble'+bubble).addClass(bubbleInfo['anim_hover_off']);
-        };
-      }
+      drawBubble($('#bubble' + i), bubbles[i]);
+    }
 
-      function randomPositions() {
-        var videoWidth = $('#video-element').width();
-        var videoHeight = $('#video-element').height();
-        $('.text-bubble').each(
-            function() {
-//              var bubbleWidth = $(this).width();
-//              var bubbleHeight = $(this).height();
-//              var newLeft = Math.round((videoWidth - bubbleWidth)
-//                  * Math.random());
-//              var newTop = Math.round((videoHeight - bubbleHeight)
-//                  * Math.random());
-//              console.log("newtop: "+newTop);
-//              console.log("newtop: "+newLeft);
-              var newLeft=Math.round(80*Math.random())+3;
-              var newTop=Math.round(55*Math.random())+10;
-              $(this).css({
-                'top': newTop+'%',
-                'left': newLeft+'%'
-              });
-            });
-      }
+  }
+  function drawBubble(jqueryObj, info) {
+    var bubble = jqueryObj;
+    bubble.css('left', info['pos'].toString() + "px");
+  }
 
-      return {
-        initialize: function() {
-          $(window).scroll(onScroll);
-          createBubbles();
-          randomPositions();
-        }
-      };
+  function initBubbles() {
+    for ( var i = 0; i < bubbles.length; i++) {
+      //calcualte speed
+      var progressLength = (bubbles[i]['stop'] - bubbles[i]['start']);
+      console.log(bubbles[i]['small_text'] + " progresslength: "
+          + progressLength)
+      var pxLength = $('#video-element').width();
+
+      bubbles[i]['speed'] = (pxLength / (progressLength * 100)); //pixlar per scrollprocent
+      console.log(bubbles[i]['small_text'] + " speed: " + bubbles[i]['speed'])
+      bubbles[i]['pxrest'] = 0;
+      bubbles[i]['pos'] = pxLength
+          + (bubbles[i]['start'] * 100 * bubbles[i]['speed']);
+
+      //First draw
+      drawBubble($('#bubble' + i), bubbles[i]);
+    }
+  }
+
+  function createBubbles() {
+    for ( var i = 0; i < bubbles.length; i++) {
+      var bubbleInfo = bubbles[i];
+      var text1 = bubbleInfo['small_text'];
+      var text2 = bubbleInfo['full_text'];
+      $('body').append(BubbleTemplate).children('#newBubble').attr("id",
+          'bubble' + i).html('<p>' + text1 + '</p>').hover(onHover(i),
+          onLeaveHover(i));
+    }
+  }
+  function onHover(bubble) {
+    return function() {
+      var bubbleInfo = bubbles[bubble];
+      var text1 = bubbleInfo['small_text'];
+      var text2 = bubbleInfo['full_text'];
+      $('#bubble' + bubble).children('p').css({
+        'font-size': '1em'
+      }).text(text2);
+      $('#bubble' + bubble).removeClass(bubbleInfo['anim_in']);
+      $('#bubble' + bubble).addClass(bubbleInfo['anim_hover_on']);
+
+    };
+  }
+  function onLeaveHover(bubble) {
+    return function() {
+      var bubbleInfo = bubbles[bubble];
+      var text1 = bubbleInfo['small_text'];
+      $('#bubble' + bubble).children('p').css({
+        'font-size': '1em'
+      }).text(text1);
+      $('#bubble' + bubble).removeClass(bubbleInfo['anim_hover_on']);
+      $('#bubble' + bubble).addClass(bubbleInfo['anim_hover_off']);
+    };
+  }
+
+  function setPositions() {
+    var videoWidth = $('#video-element').width();
+    var videoHeight = $('#video-element').height();
+    $('.text-bubble').each(function() {
+      var newLeft = Math.round(80 * Math.random()) + 3;
+      var newTop = Math.round(videoHeight * Math.random());
+      $(this).css({
+        'top': newTop + 'px',
+        'left': videoWidth + 'px'
+      });
     });
+  }
+
+  return {
+    initialize: function() {
+      $(window).scroll(onScroll);
+      createBubbles();
+      setPositions();
+      initBubbles();
+    }
+  };
+});
