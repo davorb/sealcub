@@ -80,8 +80,8 @@
 
 @-webkit-keyframes specialin {
 	0% {
-		left:-22px;
-    	top:243px;
+		left: 3341px;
+		bottom:0;
     	opacity:0;
 		
 	}
@@ -166,4 +166,35 @@
 	-moz-animation-name: specialin;
 	-o-animation-name: specialin;
 	animation-name: specialin;
+}
+
+@-webkit-keyframes bounceOutLeft2 {
+	0% {
+		-webkit-transform: translateX(0);
+		-webkit-transform: translateY(0);
+	}
+
+	20% {
+		opacity: 1;
+		-webkit-transform: translateX(20px);
+		-webkit-transform: translateY(50px);
+	}
+	50% {
+		opacity: 0.5;
+		-webkit-transform: translateX(-1000px);
+		-webkit-transform: translateY(125px);
+	}
+	100% {
+		opacity: 0;
+		-webkit-transform: translateX(-2000px);
+		-webkit-transform: translateY(-50px);
+	}
+}
+
+
+.animated.bounceOutLeft2 {
+	-webkit-animation-name: bounceOutLeft2;
+	-moz-animation-name: bounceOutLeft2;
+	-o-animation-name: bounceOutLeft2;
+	animation-name: bounceOutLeft2;
 }
