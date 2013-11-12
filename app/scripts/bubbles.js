@@ -39,10 +39,11 @@ define(
     var bubble;
     for (var i=0; i < bubbles.length; i++) {
       bubble = bubbles[i];
-      if (percent >= bubble.start) {
+      if (percent >= bubble.start && percent < bubble.stop) {
         $('.text-bubble:eq('+i+')').css('visibility',
                                         'visible');
-      } else if (percent >= bubble.stop) {
+      }
+      if (percent >= bubble.stop) {
         $('.text-bubble:eq('+i+')').css('visibility',
                                         'hidden');
       }
