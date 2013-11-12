@@ -42,8 +42,7 @@ define(
       if (percent >= bubble.start && percent < bubble.stop) {
         $('.text-bubble:eq('+i+')').css('visibility',
                                         'visible');
-      }
-      if (percent >= bubble.stop) {
+      } else {
         $('.text-bubble:eq('+i+')').css('visibility',
                                         'hidden');
       }
