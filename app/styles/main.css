@@ -52,16 +52,21 @@ body {
     line-height: 5px;
     color:gray;
     font-weight:400;
-    margin-bottom: 14px;
 }
 
-.text-bubble .map {
+.text-bubble p {
+    margin-top: 14px;
+}
+
+.text-bubble .image {
     height:12rem;
-    background:whitesmoke;
+    background: whitesmoke;
     /* margin:.5rem 0 0 -1.5rem; */
-    margin: 0;
+    margin-top: 14px;
+    margin-left: -24px;
+    margin-right: 0px;
     padding: 0;
-    width:28rem;
+    width: 378px; // kolla bredden pa .text-bubble!
 }
 
 video.fillWidth {
