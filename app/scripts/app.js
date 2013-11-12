@@ -10,7 +10,7 @@ define([
             Overview) {
   'use strict';
 
-  $('body').html('');
+  //$('body').html('');
   Timeline.initialize(10, 180);
   Video.initialize(100);
   Bubbles.initialize();

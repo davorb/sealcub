@@ -21,7 +21,6 @@ define([
       var windowPercentage = ((s-$(window).height()) / (d-c));
 
       $('.time-indicator').css('left', windowPercentage*windowWidth-12);
-      console.log(windowPercentage);
       hasScrolledPastOverview = true;
       $('.timeline').removeClass('pop-out');
       $('.timeline').addClass('pop-in');

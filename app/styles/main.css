@@ -18,6 +18,7 @@ body {
 }
 
 .text-bubble {
+    visibility: hidden;
     line-height:1.2;
     vertical-align:middle;
     padding:1.5rem;
