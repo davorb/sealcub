@@ -55,6 +55,6 @@
             "title": "The Faculty of Engineering at Lund University",
             "company":"M.Sc, Computer Science",
             "date": "2000 – 2007",
-            "content": "Specialized in Software Systems, see my grade report <a href="www.google.se/">here</a>"
+            "content": "Specialized in Software Systems, see my grade report <a href=\"www.google.se/\">here</a>"
           }
 ]

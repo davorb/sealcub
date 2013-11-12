@@ -3,7 +3,7 @@ define(
   'jquery',
   'text!templates/bubble.html',
   'dynamicanimation',
-  'text!data/bubble.json',
+  'text!data/cards.json',
   'underscore'
 ], function($,
             BubbleTemplate,
@@ -58,9 +58,9 @@ define(
       for (var i=0; i < bubbles.length; i++) {
         bubble = bubbles[i];
         $('#bubble-holder').append(_.template(BubbleTemplate, {
-          title: bubble.small_text,
-          date: "myDate",
-          mainText: bubble.full_text,
+          title: bubble.title,
+          date: bubble.date,
+          mainText: bubble.content,
           image: null
         }));
         setXY(bubble, i);
